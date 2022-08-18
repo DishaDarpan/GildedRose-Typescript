@@ -17,8 +17,26 @@ export class GildedRose {
         this.items = items;
     }
 
+    // updateAgedBrie (item: Item) {
+    //     if (item.quality < 50) {
+    //         item.quality++;
+    //     }
+    //     item.sellIn--;
+    // }
+
+    // updateSulfuras (item: Item) {
+    //     item.quality = 80;
+    // }
+
+    // updateBackStagePass (item: Item) {
+    //     item.sellIn--;
+
+    // }
+
     updateQuality() {
         for (let i = 0; i < this.items.length; i++) {
+
+            // this.agedBrieUpdate(this.items[i]);
             if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
                 if (this.items[i].quality > 0) {
                     if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
