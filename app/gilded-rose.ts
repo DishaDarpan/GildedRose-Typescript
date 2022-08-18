@@ -29,37 +29,42 @@ export class GildedRose {
     }
 
     updateBackStagePass (item: Item) {
+
         item.sellIn--;
-        // (item.sellIn >= 11) ? item.quality++ : item.quality + 2;
-        // (item.sellIn < 6) ? item.quality++ ;
-        item.quality++;
-        if (item.sellIn < 11) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
-        }
-        if (item.sellIn <=5) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
-        }
-        if (item.sellIn < 0) {
-            item.quality = 0;
-        }
-        if (item.quality > 50) {
+        //  item.quality++;
+         if (item.quality > 50) {
             item.quality = 50;
         }
+        item.sellIn < 0 ? item.quality = 0 : item.sellIn <= 5 ? item.quality = item.quality + 3 
+        : item.sellIn <=10 ? item.quality = item.quality + 2 : item.quality++;
+           
+        // if (item.sellIn < 11) {
+        //     if (item.quality < 50) {
+        //         item.quality = item.quality + 1;
+        //     }
+        // }
+        // if (item.sellIn <=5) {
+        //     if (item.quality < 50) {
+        //         item.quality = item.quality + 1;
+        //     }
+        // }
+        // if (item.sellIn < 0) {
+        //     item.quality = 0;
+        // }
+        // if (item.quality > 50) {
+        //     item.quality = 50;
+        // }
 
     }
     updateNormalItems (item: Item) {
         item.sellIn-- ;
-        // (item.sellIn > 0) ? item.quality-- : item.quality-2;
-        if (item.sellIn > 0) {
-            item.quality-- ;
-        }
-        else {
-            item.quality = item.quality - 2;
-        }
+        (item.sellIn > 0) ? item.quality-- : item.quality = item.quality - 2;
+        // if (item.sellIn > 0) {
+        //     item.quality-- ;
+        // }
+        // else {
+        //     item.quality = item.quality - 2;
+        // }
     }
 
     updateQuality() {
@@ -82,6 +87,9 @@ export class GildedRose {
                     
             }
         }
+        return this.items;
+    }
+}
 
 //             // this.agedBrieUpdate(this.items[i]);
 //             if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
@@ -129,6 +137,4 @@ export class GildedRose {
 //             }
 //         }
 
-        return this.items;
-    }
-}
+ 
