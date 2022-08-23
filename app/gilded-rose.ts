@@ -42,6 +42,11 @@ export class GildedRose {
         (item.sellIn > 0) ? item.quality-- : item.quality = item.quality - 2;
     }
 
+    updateConjuredItem (item: Item) {
+        item.sellIn-- ;
+        (item.sellIn > 0) ? item.quality = item.quality - 2 : item.quality<=2 ? item.quality = 0 :item.quality = item.quality - 4;
+    }
+
     updateQuality() {
 
         for (let i = 0; i < this.items.length; i++) {
@@ -57,6 +62,10 @@ export class GildedRose {
                 case "Backstage passes to a TAFKAL80ETC concert" :
                     this.updateBackStagePass (this.items[i]);
                     break;
+                case "Conjured Mana Cake" :
+                    this.updateConjuredItem (this.items[i]);
+                    break;
+                    
                 default :
                     this.updateNormalItems (this.items[i]);
                     
